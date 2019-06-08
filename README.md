@@ -23,7 +23,7 @@ The velocity of the car depends on the spacing of the points. Because the car mo
 **Highway Map**
 Inside `/data/highway_map.csv`  there is a list of waypoints that go all the way around the track. The track contains a total of 181 waypoints, with the last waypoint mapping back around to the first. The waypoints are in the middle of the double-yellow dividing line in the center of the highway.
 
-<img src="/images/highwaymap.png" width="400">
+<img src="/images/highwaymap.PNG" width="400">
 
 The track is 6945.554 meters around (about 4.32 miles). If the car averages near 50 MPH, then it should take a little more than 5 minutes for it to go all the way around the highway.
 
@@ -34,7 +34,7 @@ Each waypoint has an (x,y) global map position, and a Frenet s value and Frenet 
 
 The s value is the distance along the direction of the road. The first waypoint has an s value of 0 because it is the starting point.
 
-<img src="/images/waypoints.png" width="400">
+<img src="/images/waypoints.PNG" width="400">
 
 The d vector has a magnitude of 1 and points perpendicular to the road in the direction of the right-hand side of the road. The d vector can be used to calculate lane positions. For example, if you want to be in the left lane at some waypoint just add the waypoint's (x,y) coordinates with the d vector multiplied by 2. Since the lane is 4 m wide, the middle of the left lane (the lane closest to the double-yellow dividing line) is 2 m from the waypoint.
 
@@ -47,7 +47,7 @@ The data format for each car is: [ id, x, y, vx, vy, s, d]. The id is a unique i
 
 Below is a log of the sensor fusion data for two different time steps.
 
-<img src="/images/sensor_fusion.png" width="400">
+<img src="/images/sensor_fusion.PNG" width="400">
 
 ---
 
