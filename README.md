@@ -83,12 +83,12 @@ with respect to our vehicle.
 Then with the predicted Frenet s coordinate and speed of the tracked cars, we implement the following finite state machine:
 
 `IF` one of the tracked cars is on our left `AND`:
-1. it's ahead of us with distance < 30m `AND` its speed is <20 ms-1, `THEN` it is not safe to turn left
-1. it's behind us with distance < 30m `AND` its speed is >5 ms-1, `THEN` it is not safe to turn left
+1. it's ahead of us with distance < 30m `AND` its speed is <20 ms<sup>-1</sup>, `THEN` it is not safe to turn left
+1. it's behind us with distance < 30m `AND` its speed is >5 ms<sup>-1</sup>, `THEN` it is not safe to turn left
 
 `IF` one of the tracked cars is on our right `AND`:
-1. it's ahead of us with distance < 30m `AND` its speed is <20 ms-1, `THEN` it is not safe to turn right
-1. it's behind us with distance < 30m `AND` its speed is >5 ms-1, `THEN` it is not safe to turn right
+1. it's ahead of us with distance < 30m `AND` its speed is <20 ms<sup>-1</sup>, `THEN` it is not safe to turn right
+1. it's behind us with distance < 30m `AND` its speed is >5 ms<sup>-1</sup>, `THEN` it is not safe to turn right
 
 `IF` one of the tracked cars is on the same lane with us `AND` it's ahead of us with distance < 30m , `THEN`:
 1. `IF` it's safe to turn left `AND` we are not on left lane, `THEN` turn left
@@ -101,9 +101,9 @@ We fit a spline using 5 anchor points, which are defined as follows:
 
 1. Second last point from previous planned path
 1. Last point from previous planned path
-1. 30m ahead of (b) along the center of the same lane using Frenet coordinate
-1. 60m ahead of (b) along the center of the same lane using Frenet coordinate
-1. 90m ahead of (b) along the center of the same lane using Frenet coordinate
+1. 30m ahead of (2) along the center of the same lane using Frenet coordinate
+1. 60m ahead of (2) along the center of the same lane using Frenet coordinate
+1. 90m ahead of (2) along the center of the same lane using Frenet coordinate
 
 The anchor points are first converted in local coordinate frame of our car before fitting the spline. After the spline is fitted with the transformed anchor points, trajectory points are placed along the fitted spline to ensure it does not exceed the speed limit of 50 mph. 
 
