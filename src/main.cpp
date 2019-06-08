@@ -168,7 +168,7 @@ int main() {
           }
 
           // if one of the other vehicles is too close, deccelerate by reducing ref_vel
-          // by steps of 0.447 mph
+          // by steps of 0.425 mph (i.e. 0.16 ms-1, which correspond to 9.5 ms-2)
           // max acceleration or decceleration is 10 ms-2, and each path point execution
           // is 0.02s, thus max change in velocity is 0.2 ms-1, i.e. 0.447 mph
           if (too_close){
@@ -177,10 +177,10 @@ int main() {
             else if (lane != 2 && can_switch_right)
               lane++;
             else
-              ref_vel -= 0.447;		//slow down
+              ref_vel -= 0.425;		//slow down
           }
           else if (ref_vel < max_vel)
-            ref_vel += 0.447;
+            ref_vel += 0.425;
 					
           vector<double> ptsx;
           vector<double> ptsy;
