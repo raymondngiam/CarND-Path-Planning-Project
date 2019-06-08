@@ -67,36 +67,36 @@ We loop through the list of tracked cars in the `sensor_fusion` data. The predic
 **Behavior Planning**
 For each of tracked car, based on the predicted Frenet d coordinate, we first identify whether the tracked car is
 
-a. on the same lane, or
-a. to the left, or
-a. to the right
+1. on the same lane, or
+1. to the left, or
+1. to the right
  
 with respect to our vehicle.
 
 Then with the predicted Frenet s coordinate and speed of the tracked cars, we implement the following finite state machine:
 
 `IF` one of the tracked cars is on our left `AND`:
-a. it's ahead of us with distance < 30m `AND` its speed is <20 ms-1, `THEN` it is not safe to turn left
-a. it's behind us with distance < 30m `AND` its speed is >5 ms-1, `THEN` it is not safe to turn left
+1. it's ahead of us with distance < 30m `AND` its speed is <20 ms-1, `THEN` it is not safe to turn left
+1. it's behind us with distance < 30m `AND` its speed is >5 ms-1, `THEN` it is not safe to turn left
 
 `IF` one of the tracked cars is on our right `AND`:
-a. it's ahead of us with distance < 30m `AND` its speed is <20 ms-1, `THEN` it is not safe to turn right
-a. it's behind us with distance < 30m `AND` its speed is >5 ms-1, `THEN` it is not safe to turn right
+1. it's ahead of us with distance < 30m `AND` its speed is <20 ms-1, `THEN` it is not safe to turn right
+1. it's behind us with distance < 30m `AND` its speed is >5 ms-1, `THEN` it is not safe to turn right
 
 `IF` one of the tracked cars is on the same lane with us `AND` it's ahead of us with distance < 30m , `THEN`:
-a. `IF` it's safe to turn left `AND` we are not on left lane, `THEN` turn left
-a. `ELSEIF` it's safe to turn right `AND` we are not on right lane, `THEN` turn right
-a. `ELSE` deccelerate
+1. `IF` it's safe to turn left `AND` we are not on left lane, `THEN` turn left
+1. `ELSEIF` it's safe to turn right `AND` we are not on right lane, `THEN` turn right
+1. `ELSE` deccelerate
 
 **Trajectory Generation**
 
 We fit a spline using 5 anchor points, which are defined as follows:
 
-a. Second last point from previous planned path
-a. Last point from previous planned path
-a. 30m ahead of (b) along the center of the same lane using Frenet coordinate
-a. 60m ahead of (b) along the center of the same lane using Frenet coordinate
-a. 90m ahead of (b) along the center of the same lane using Frenet coordinate
+1. Second last point from previous planned path
+1. Last point from previous planned path
+1. 30m ahead of (b) along the center of the same lane using Frenet coordinate
+1. 60m ahead of (b) along the center of the same lane using Frenet coordinate
+1. 90m ahead of (b) along the center of the same lane using Frenet coordinate
 
 The anchor points are first converted in local coordinate frame of our car before fitting the spline. After the spline is fitted with the transformed anchor points, trajectory points are placed along the fitted spline to ensure it does not exceed the speed limit of 50 mph. 
 
