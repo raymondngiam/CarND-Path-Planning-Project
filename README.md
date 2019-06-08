@@ -23,7 +23,7 @@ The velocity of the car depends on the spacing of the points. Because the car mo
 **Highway Map**
 Inside `/data/highway_map.csv`  there is a list of waypoints that go all the way around the track. The track contains a total of 181 waypoints, with the last waypoint mapping back around to the first. The waypoints are in the middle of the double-yellow dividing line in the center of the highway.
 
-<img src="/images/highwaymap.PNG" width="400">
+<img src="/images/highwaymap.PNG" width="600">
 
 The track is 6945.554 meters around (about 4.32 miles). If the car averages near 50 MPH, then it should take a little more than 5 minutes for it to go all the way around the highway.
 
@@ -47,7 +47,7 @@ The data format for each car is: [ id, x, y, vx, vy, s, d]. The id is a unique i
 
 Below is a log of the sensor fusion data for two different time steps.
 
-<img src="/images/sensor_fusion.PNG" width="400">
+<img src="/images/sensor_fusion.PNG" width="600">
 
 ---
 
