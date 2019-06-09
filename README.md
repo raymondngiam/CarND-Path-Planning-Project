@@ -108,3 +108,39 @@ We fit a spline using 5 anchor points, which are defined as follows:
 The anchor points are first converted in local coordinate frame of our car before fitting the spline. After the spline is fitted with the transformed anchor points, trajectory points are placed along the fitted spline to ensure it does not exceed the speed limit of 50 mph. 
 
 Lastly, the new trajectory points are transformed back to global coordinate frame and appended to the previous planned path.
+
+---
+
+### Installation
+
+**IMPORTANT NOTE: I used `timespec_get` function and `TIME_UTC` macro specified in C11 Standard for logging with sub second timestamps. The code can be compiled and run using Ubuntu without any issue. However, The Mac OS X standard libary does not conform to any modern versions of C or POSIX, thus will complain about "use of undeclared identifier TIME_UTC", see StackOverflow post [here](https://stackoverflow.com/questions/52028083/why-isnt-timespec-get-defined-on-any-c-compiler-on-my-mac?rq=1). Hence you CANNOT compile and run this code in Mac.**
+
+1. Download the Udacity Self Driving Car Nanodegree simulator from [here](https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).
+
+2. Set up and install [uWebSocketIO](https://github.com/uWebSockets/uWebSockets) by running the shell script in the project top directory:
+
+```
+$ install-ubuntu.sh
+```
+
+**Other Important Dependencies**
+
+* cmake >= 3.5
+* make >= 4.1
+* gcc/g++ >= 5.4
+
+---
+
+### How to run
+
+The main program can be built and run by doing the following from the project top directory.
+
+1. $ mkdir build && cd build
+
+2. $ cmake ..
+
+3. $ make
+
+4. $ ./path_planning
+
+Open the simulator, select `Project 1: Path Planning`
