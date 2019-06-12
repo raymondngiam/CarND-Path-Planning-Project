@@ -8,6 +8,14 @@ This is a project for Udacity's Self Driving Car Nanodegree. The objective is to
 The car transmits its location, along with its sensor fusion data, which estimates the location of all the vehicles on the same side of the road.
 
 ---
+
+### Video Demo
+
+<img src="/images/demo.gif" width="640">
+
+The green line represents the 50 trajectory waypoints planned 1 second ahead.
+
+---
 ### Background
 
 **Point Paths**
